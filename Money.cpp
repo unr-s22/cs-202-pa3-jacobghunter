@@ -13,7 +13,13 @@ Money::Money() {
     cents = 0;
 }
 
+void Money::setMoney(int d, int c) {
+    dollars = d;
+    cents = c;
+}
+
 std::ostream& operator << (std::ostream &out, const Money &m) {
+    //adding leading zeros if necessary
     std::string leadingZero = "";
     if (std::to_string(m.cents).length() == 1) {
         leadingZero = "0";
@@ -49,8 +55,6 @@ Money operator - (const Money &m1, const Money &m2) {
 bool operator < (const Money &m1, const Money &m2) {
     if (m1.dollars < m2.dollars) {
         return true;
-    } else if (m1.dollars > m2.dollars) {
-        return false;
     } else if (m1.dollars == m2.dollars) {
         if (m1.cents < m2.cents) {
             return true;
@@ -62,12 +66,38 @@ bool operator < (const Money &m1, const Money &m2) {
 bool operator > (const Money &m1, const Money &m2) {
     if (m1.dollars > m2.dollars) {
         return true;
-    } else if (m1.dollars < m2.dollars) {
-        return false;
     } else if (m1.dollars == m2.dollars) {
         if (m1.cents > m2.cents) {
             return true;
         }
     }
     return false;
+}
+
+bool operator >= (const Money &m1, const Money &m2) {
+    if (m1 > m2 || m1 == m2) {
+        return true;
+    }
+    return false;
+}
+
+bool operator <= (const Money &m1, const Money &m2) {
+    if (m1 < m2 || m1 == m2) {
+        return true;
+    }
+    return false;
+}
+
+bool operator == (const Money &m1, const Money &m2) {
+    if (m1.dollars == m2.dollars && m1.cents == m2.cents) {
+        return true;
+    }
+    return false;
+}
+
+bool operator != (const Money &m1, const Money &m2) {
+    if (m1.dollars == m2.dollars && m1.cents == m2.cents) {
+        return false;
+    }
+    return true;
 }
