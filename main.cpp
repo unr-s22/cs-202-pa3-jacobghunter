@@ -1,18 +1,18 @@
 #include "Money.h"
-// #include "Account.h"
+#include "Account.h"
 
 int main() {
 
     //for once Account is done, make sure methods are named the same
 
-    //Accout acc(300, 23);
+    Account acc(300, 23);
     //std::cout << acc;
-    //acc.makeDeposit(200);
-    //acc.makeDeposit(300, 24);
-    //acc.makeDeposit(501, 22);
+    acc.makeDeposit(200, 0);
+    acc.makeDeposit(300, 24);
+    acc.makeDeposit(501, 22);
     //std::cout << acc;
-    //makeWithdrawls(300, 10);
-    //makeWithdrawls(201, 34);
+    acc.makeWithdrawls(300, 10);
+    acc.makeWithdrawls(201, 34);
     //std::cout << acc;
     
 
