@@ -9,7 +9,6 @@
 #include "Money.h"
 
 class Account : public Money {
-    int d, c;
     bool update_balance = false;
     int deposits_count = 0;
     int withdrawls_count = 0;
@@ -19,17 +18,12 @@ class Account : public Money {
 
 public:
     Money balance; 
-    Account(int d, int c);
+    Account(Money);
 
-    Money getBalance();
-    void setBalance(Money balance);
-
-    void makeDeposit(int d, int c);
-    void makeWithdrawls(int d, int c);
-
-    std::string accountDetails();
+    void makeDeposit(Money);
+    void makeWithdrawls(Money);
     
-    friend std::ostream& operator << (std::ostream &out, const Money &balance);
+    friend std::ostream& operator << (std::ostream &out, const Account &acc);
 
 };
 
