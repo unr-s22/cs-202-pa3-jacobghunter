@@ -20,6 +20,7 @@ public:
     Money balance; 
     Account(Money);
 
+    Money getBalance();
     void makeDeposit(Money);
     void makeWithdrawls(Money);
     
